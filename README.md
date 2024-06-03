@@ -1,10 +1,13 @@
-# Ollama Prompter
+# OllamaPrompter
 
 This repository is dedicated to enhancing the functionality originally found in the [Promptify](https://github.com/promptslab/Promptify) GitHub repo. As the original Promptify repository is no longer actively maintained, we have decided to adapt and extend its capabilities by integrating the Ollama API to facilitate prompt engineering to solve NLP problems.
 
 # Installation
 
+This repository is tested on Python 3.9+, macOS Sonoma and Ubuntu 22.04.
+
 ```bash
+git clone https://github.com/penguinwang96825/OllamaPrompter.git
 pip install -e .
 ```
 
@@ -13,8 +16,11 @@ pip install -e .
 ```python
 from ollama_prompter import Ollama, Prompter, Pipeline
 
+# Define text input and pre-defined labels
 text_input = "Wall Street's dwindling and of ultra-cynics, are seeing green again."
 labels = {'World', 'Sports', 'Business', 'Sci/Tech'}
+
+# Defince model, prompter and pipeline
 model = Ollama(
     model_name='llama3:latest', 
     endpoint='http://localhost:11434', 
@@ -25,12 +31,12 @@ model = Ollama(
 prompter = Prompter('multiclass_classification.jinja')
 pipe = Pipeline([prompter] , model)
 
+# Inference
 result = pipe.fit(
     text_input=text_input, 
     labels=labels, 
-    description=description, 
 )
-print(eval(result[0]['text']))
+print(eval(result[0]['text'])) # ["C": "Business"]
 ```
 
 # Features
