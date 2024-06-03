@@ -1,0 +1,7 @@
+colorlog
+rich
+openai
+tiktoken
+ollama
+tenacity
+jinja2

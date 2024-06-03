@@ -1,0 +1,104 @@
+[
+    {
+        "models": [
+            "gpt-3.5-turbo-0125",
+            "gpt-3.5-turbo",
+            "gpt-3.5-turbo-1106",
+            "gpt-3.5-turbo-instruct",
+            "gpt-4-turbo",
+            "gpt-4-0125-preview",
+            "gpt-4-turbo-preview",
+            "gpt-4",
+            "gpt-4-0613"
+        ],
+        "language": "en",
+        "task": "Multiclass Text Classification",
+        "description": "Prompt for classifying text into multiple classes using Large Language Models (LLMs).",
+        "authors": "Yang Wang",
+        "github": "penguinwang96825",
+        "point_of_contact": "yangwang4work@gmail.com",
+        "llm_parameters": {
+            "temperature": 0.7
+        },
+        "file_name": "multiclass_classification.jinja",
+        "sample_data": "",
+        "version": "1.1",
+        "source": "Original",
+        "tags": [
+            "text_classification",
+            "natural_language_processing",
+            "text_analysis",
+            "multiclass_classification",
+            "nlp",
+            "text",
+            "classification",
+            "multiple",
+            "classes"
+        ],
+        "license": {
+            "name": "CC BY-SA 4.0",
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "restrictions": "None"
+        },
+        "limitations": "",
+        "created": "Dec 12, 2022, 11:36 PM",
+        "updated": "2023-04-21",
+        "nft": "",
+        "sample_output": [
+            {
+                "C": "label"
+            }
+        ],
+        "contributors": [],
+        "citation": "",
+        "prompt_id": "4dfa7083-3225-4e64-986b-42a01c86ea0a"
+    }, 
+    {
+        "models": [
+            "phi3:mini", 
+            "phi3:medium", 
+            "llama3:latest"
+        ],
+        "language": "en",
+        "task": "Multiclass Text Classification",
+        "description": "Prompt for classifying text into multiple classes using Large Language Models (LLMs).",
+        "authors": "Yang Wang",
+        "github": "penguinwang96825",
+        "point_of_contact": "yangwang4work@gmail.com",
+        "llm_parameters": {
+            "temperature": 0.7
+        },
+        "file_name": "multiclass_classification.jinja",
+        "sample_data": "",
+        "version": "1.1",
+        "source": "Original",
+        "tags": [
+            "text_classification",
+            "natural_language_processing",
+            "text_analysis",
+            "multiclass_classification",
+            "nlp",
+            "text",
+            "classification",
+            "multiple",
+            "classes"
+        ],
+        "license": {
+            "name": "CC BY-SA 4.0",
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "restrictions": "None"
+        },
+        "limitations": "",
+        "created": "Dec 12, 2022, 11:36 PM",
+        "updated": "2024-06-03",
+        "nft": "",
+        "sample_output": [
+            {
+                "C": "label"
+            }
+        ],
+        "contributors": [],
+        "citation": "",
+        "prompt_id": "4dfa9035-3225-4e64-986b-42a02c86ea0a"
+    }
+]
