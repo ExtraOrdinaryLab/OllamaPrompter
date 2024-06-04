@@ -55,6 +55,7 @@ print(eval(result[0]['text'])) # [{'C': 'Sports'}]
 # 💡 Roadmaps
 
  - [ ] Add local HuggingFace models support to work with current OllamaPrompter.
+ - [x] Chain-of-Thought (CoT) integration in text classification task to encourage LLMs to explain their reasonings.
  - [ ] Self-Consistency (SC) integration to send the same prompt with the same text to the same LLM multiple times with different reasoning paths.
  - [ ] Perplexity Estimation of the prompt to measure LLMs awareness and confidence.
  - [ ] Add more NLP tasks
