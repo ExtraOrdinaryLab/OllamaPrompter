@@ -1,11 +1,17 @@
 import tenacity
 from abc import ABCMeta, abstractmethod
-from typing import List, Dict, Union, Optional
+from typing import List, Dict, Union, Mapping, Iterator, Any
 
 
 class BaseModel(metaclass=ABCMeta):
     """
     Abstract base class for a large language models (LLMs).
+
+    Args:
+        api_key (str): API key to identify an application.
+        model_name (str): Name of the model.
+        api_await (bool): Waiting time for the API to finish in seconds.
+        api_retry (int): Retrying time for the API to finish.
     """
     name = ""
     description = ""
@@ -35,6 +41,9 @@ class BaseModel(metaclass=ABCMeta):
     def set_key(self, api_key: str):
         """
         Set endpoint API key if needed.
+
+        Args:
+            api_key (str): API key to identify an application.
         """
         raise NotImplementedError
     
@@ -42,6 +51,9 @@ class BaseModel(metaclass=ABCMeta):
     def supported_models(self) -> List[str]:
         """
         Get a list of supported models for the endpoint.
+
+        Returns:
+            List of supported models.
         """
         raise NotImplementedError
     
@@ -49,6 +61,9 @@ class BaseModel(metaclass=ABCMeta):
     def set_model_name(self, model_name: str):
         """
         Set model name for the endpoint.
+
+        Args:
+            model_name (str): Name of the model.
         """
         raise NotImplementedError
     
@@ -56,6 +71,9 @@ class BaseModel(metaclass=ABCMeta):
     def get_description(self) -> str:
         """
         Get model description.
+
+        Returns:
+            Return the description of the model class.
         """
         raise NotImplementedError
     
@@ -63,6 +81,9 @@ class BaseModel(metaclass=ABCMeta):
     def get_endpoint(self) -> str:
         """
         Get model endpoint.
+        
+        Returns:
+            Return the endpoint of the model.
         """
         raise NotImplementedError
     
@@ -70,18 +91,24 @@ class BaseModel(metaclass=ABCMeta):
     def get_parameters(self) -> Dict[str, str]:
         """
         Get model parameters.
+
+        Returns:
+            Get the parameters of the model.
         """
         raise NotImplementedError
     
     @abstractmethod
-    def run(self, prompts: List[str]) -> List[str]:
+    def run(self, prompt: str) -> Union[Mapping[str, Any], Iterator[Mapping[str, Any]]]:
         """
-        Run the LLM on the given prompt list.
+        Run the LLM on the given prompt.
+
+        Args:
+            prompt (str): It serves as a form of conditioning that guides the model's output.
         """
         raise NotImplementedError
     
     @abstractmethod
-    def model_output(self, response):
+    def model_output(self, response: Any) -> Dict:
         """
         Get the model output from the response.
         """

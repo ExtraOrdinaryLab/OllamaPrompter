@@ -8,7 +8,18 @@ from ollama_prompter.models.api.base_model import BaseModel
 
 
 class Ollama(BaseModel):
+    """
+    Ollama API
+    
+    Note:
+        Need to run local builds for Ollama to start the server first. Ollama has a REST API for running and managing models.
 
+    Tip: You can even set up Ollama on remote server
+        On your remote server, start by running `ollama serve` and run `ngrok http 11434`. 
+        You will get a HTTP endpoint like "https://75fe5c3e.ngrok.io".
+        Open your browser and input the HTTP endpoint. 
+        If you see "Ollama is running", then it's working!
+    """
     name = "Ollama"
     description = "Ollama for text completion using various models."
 

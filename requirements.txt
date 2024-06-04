@@ -5,3 +5,7 @@ tiktoken==0.4.0
 ollama==0.2.0
 tenacity==8.2.2
 Jinja2==2.11.3
+mkdocs==1.6.0
+mkdocstrings[python]==0.25.1
+mkdocs-material==9.5.25
+mkdocs-material[imaging]
