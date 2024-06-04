@@ -68,17 +68,17 @@ More examples will be forthcoming in [examples](https://github.com/penguinwang96
      - [ ] Summarisation
      - [ ] Translation
 
-# License
+# 📝 License
 
 This project is licensed under the [MIT License](https://github.com/penguinwang96825/OllamaPrompter/blob/main/LICENSE).
 
-# Credits
+# 💳 Credits
 
 Inspired by and based on code from [Promptify](https://github.com/promptslab/Promptify) and [Spacy-LLM](https://github.com/explosion/spacy-llm). We have utilised a substantial amount of code from these repos, and we are grateful to the original authors for their groundwork, which has been instrumental in the progress of this project.
 
-# Contact
+# 📞 Contact
 
-Please reach out to [yangwang4work@gmail.com](mailto:yangwang4work@gmail.com) for any questions related to this code. If you find this repo useful, we would also be happy about a ⭐️.
+Please reach out to [yangwang4work@gmail.com](mailto:yangwang4work@gmail.com) for any questions related to this code. If you find this repo useful, we would also be happy about a 🌟.
 
 # 📝 Acknowledgements
 
