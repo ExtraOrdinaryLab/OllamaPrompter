@@ -32,7 +32,7 @@ prompter = Prompter(
     template_name='text_classification.jinja', 
     template_dir='templates'
 )
-pipe = Pipeline([prompter] , model, json_depth_limit=100)
+pipe = Pipeline([prompter] , model, json_depth_limit=20)
 
 # Inference
 variables = {
@@ -52,9 +52,11 @@ print(eval(result[0]['text'])) # [{'C': 'Sports'}]
  - Ollama API integration to enhance the prompt engineering capability of the [Promptify](https://github.com/promptslab/Promptify) origninal code.
  - Chain-of-Thought (CoT) is supported in text classification task to encourage LLMs to explain their reasonings.
 
-## 💡 Roadmaps
+# 💡 Roadmaps
 
+ - [ ] Add local HuggingFace models support to work with current OllamaPrompter.
  - [ ] Self-Consistency (SC) integration to send the same prompt with the same text to the same LLM multiple times with different reasoning paths.
+ - [ ] Perplexity Estimation of the prompt to measure LLMs awareness and confidence.
 
 # 📝 Acknowledgements
 
