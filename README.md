@@ -1,5 +1,5 @@
 <div align="center">
-<img src="docs/imgs/logo.png" width="65%">
+<img src="docs/imgs/logo.webp" width="65%">
 </div>
 
 # OllamaPrompter
