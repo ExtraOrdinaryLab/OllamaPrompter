@@ -47,6 +47,8 @@ result = pipe.fit(
 print(eval(result[0]['text'])) # [{'C': 'Sports'}]
 ```
 
+More examples will be forthcoming in [examples](https://github.com/penguinwang96825/OllamaPrompter/tree/master/examples) folder.
+
 # 🎮 Features
 
  - Ollama API integration to enhance the prompt engineering capability of the [Promptify](https://github.com/promptslab/Promptify) origninal code.
@@ -66,6 +68,19 @@ print(eval(result[0]['text'])) # [{'C': 'Sports'}]
      - [ ] Summarisation
      - [ ] Translation
 
+# License
+
+This project is licensed under the [MIT License](https://github.com/penguinwang96825/OllamaPrompter/blob/main/LICENSE).
+
+# Credits
+
+Inspired by and based on code from [Promptify](https://github.com/promptslab/Promptify) and [Spacy-LLM](https://github.com/explosion/spacy-llm). We have utilised a substantial amount of code from these repos, and we are grateful to the original authors for their groundwork, which has been instrumental in the progress of this project.
+
+# Contact
+
+Please reach out to [yangwang4work@gmail.com](mailto:yangwang4work@gmail.com) for any questions related to this code. If you find this repo useful, we would also be happy about a ⭐️.
+
 # 📝 Acknowledgements
 
-We have utilised a substantial amount of code from the [Promptify](https://github.com/promptslab/Promptify) GitHub repository. We are grateful to the original authors for their groundwork, which has been instrumental in the progress of this project.
+ - Thanks to everyone who contribute their time, ideas and codes to OllamaPrompter.
+ - Thanks to the excelent projects: [Promptify](https://github.com/promptslab/Promptify), [Spacy-LLM](https://github.com/explosion/spacy-llm), [Ollama][https://github.com/ollama/ollama-python], [OpenAI](https://github.com/openai/openai-python), [Transformers](https://github.com/huggingface/transformers), [Jinja](https://github.com/pallets/jinja), etc.
