@@ -58,7 +58,8 @@ print(eval(result[0]['text'])) # [{'C': 'Sports'}]
  - [x] Chain-of-Thought (CoT) integration in text classification task to encourage LLMs to explain their reasonings.
  - [ ] Self-Consistency (SC) integration to send the same prompt with the same text to the same LLM multiple times with different reasoning paths.
  - [ ] Perplexity Estimation of the prompt to measure LLMs awareness and confidence.
- - [ ] Add more NLP tasks
+ - [ ] OpenAI API tokens costs estimation.
+ - [ ] Add more NLP tasks.
      - [x] Text Classification
      - [ ] Named Entity Recognition (NER)
      - [ ] Question Answering (QA)
