@@ -83,4 +83,4 @@ Please reach out to [yangwang4work@gmail.com](mailto:yangwang4work@gmail.com) fo
 # 📝 Acknowledgements
 
  - Thanks to everyone who contribute their time, ideas and codes to OllamaPrompter.
- - Thanks to the excelent projects: [Promptify](https://github.com/promptslab/Promptify), [Spacy-LLM](https://github.com/explosion/spacy-llm), [Ollama][https://github.com/ollama/ollama-python], [OpenAI](https://github.com/openai/openai-python), [Transformers](https://github.com/huggingface/transformers), [Jinja](https://github.com/pallets/jinja), etc.
+ - Thanks to the excelent projects: [Promptify](https://github.com/promptslab/Promptify), [Spacy-LLM](https://github.com/explosion/spacy-llm), [Ollama](https://github.com/ollama/ollama-python), [OpenAI](https://github.com/openai/openai-python), [Transformers](https://github.com/huggingface/transformers), [Jinja](https://github.com/pallets/jinja), etc.
