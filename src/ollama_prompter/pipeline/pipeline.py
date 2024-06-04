@@ -39,7 +39,7 @@ class Pipeline:
             if is_string_or_digit(value)
         }
 
-    def fit(self, text_input: str, **kwargs) -> Any:
+    def fit(self, text: str, **kwargs) -> Any:
         """
         Processes an input text through the pipeline:
          - Generate a prompt
@@ -51,15 +51,14 @@ class Pipeline:
         outputs_list = []
         for prompter in tqdm(self.prompters):
             try:
-                template, _ = prompter.generate(text_input, self.model.model_name, **kwargs)
+                prompt = prompter.generate(text, **kwargs)
             except ValueError as e:
-                print(f"Error in generating prompt: {e}")
-                return None
+                raise ValueError(f"Error in generating prompt: {e}")
 
             if kwargs.get("verbose", False):
-                print(template)
+                print(prompt)
 
-            output = self._get_output_from_cache_or_model(template)
+            output = self._get_output_from_cache_or_model(prompt)
             if output is None:
                 return None
 
@@ -67,19 +66,18 @@ class Pipeline:
 
         return outputs_list
 
-    def _get_output_from_cache_or_model(self, template):
+    def _get_output_from_cache_or_model(self, prompt):
         output = None
 
         if self.cache_prompt:
-            output = self.prompt_cache.get(template)
+            output = self.prompt_cache.get(prompt)
 
         if output is None:
             try:
-                response = self.model.execute_with_retry(prompt=template)
+                response = self.model.execute_with_retry(prompt=prompt)
             except Exception as e:
                 print(f"Error in model execution: {e}")
                 return None
-            # response = self.model.run(prompt=template)
 
             if self.structured_output:
                 output = self.model.model_output(
@@ -89,7 +87,7 @@ class Pipeline:
                 output = response
 
             if self.cache_prompt:
-                self.prompt_cache.add(template, output)
+                self.prompt_cache.add(prompt, output)
 
         return output
     
