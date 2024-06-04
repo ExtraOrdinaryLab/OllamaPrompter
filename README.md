@@ -57,6 +57,7 @@ More examples will be forthcoming in [examples](https://github.com/penguinwang96
 
 # 💡 Roadmaps
 
+ - [ ] Build proper documentation about users, implementations details, and project details.
  - [ ] Add local HuggingFace models support to work with current OllamaPrompter.
  - [x] Chain-of-Thought (CoT) integration in text classification task to encourage LLMs to explain their reasonings.
  - [ ] Self-Consistency (SC) integration to send the same prompt with the same text to the same LLM multiple times with different reasoning paths.
