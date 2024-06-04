@@ -35,8 +35,7 @@ prompter = Prompter(
 pipe = Pipeline([prompter] , model)
 
 # Inference
-result = pipe.fit(
-    'text': "Wall Street's dwindling and of ultra-cynics, are seeing green again.", 
+variables = {
     'labels': ['World', 'Sports', 'Business', 'Sci/Tech'], 
     'exclusive_classes': True, 
     'allow_none': False, 
@@ -52,6 +51,10 @@ result = pipe.fit(
             'answer': 'Sci/Tech'
         }
     ]
+}
+result = pipe.fit(
+    text="Wall Street's dwindling and of ultra-cynics, are seeing green again.", 
+    **variables
 )
 print(eval(result[0]['text'])) # ["C": "Business"]
 ```
