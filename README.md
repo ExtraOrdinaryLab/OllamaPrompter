@@ -17,8 +17,8 @@ pip install -e .
 from ollama_prompter import Ollama, Prompter, Pipeline
 
 # Define text input and pre-defined labels
-text_input = "Wall Street's dwindling and of ultra-cynics, are seeing green again."
-labels = {'World', 'Sports', 'Business', 'Sci/Tech'}
+text = "Wall Street's dwindling and of ultra-cynics, are seeing green again."
+labels = ['World', 'Sports', 'Business', 'Sci/Tech']
 
 # Define model, prompter and pipeline
 model = Ollama(
@@ -36,7 +36,7 @@ pipe = Pipeline([prompter] , model)
 
 # Inference
 variables = {
-    'labels': ['World', 'Sports', 'Business', 'Sci/Tech'], 
+    'labels': labels, 
     'exclusive_classes': True, 
     'allow_none': False, 
     'label_definitions': {
@@ -53,7 +53,7 @@ variables = {
     ]
 }
 result = pipe.fit(
-    text="Wall Street's dwindling and of ultra-cynics, are seeing green again.", 
+    text=text, 
     **variables
 )
 print(eval(result[0]['text'])) # ["C": "Business"]
