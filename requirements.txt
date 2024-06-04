@@ -1,7 +1,7 @@
-colorlog
+colorlog==6.8.2
 rich
-openai
-tiktoken
-ollama
-tenacity
-jinja2
+openai==1.30.5
+tiktoken==0.4.0
+ollama==0.2.0
+tenacity==8.2.2
+Jinja2==2.11.3
