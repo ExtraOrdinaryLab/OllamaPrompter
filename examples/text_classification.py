@@ -8,8 +8,8 @@ def main():
 
     # Define model, prompter and pipeline
     model = Ollama(
-        model_name='phi3:medium', # llama3:latest
-        endpoint='https://octopus-ideal-piglet.ngrok-free.app', 
+        model_name='llama3:latest', 
+        endpoint='http://localhost:11434', 
         temperature=0.1, 
         top_k=1, 
         top_p=1
