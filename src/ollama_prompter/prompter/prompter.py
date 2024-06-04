@@ -1,70 +1,33 @@
 import os
 from typing import List, Dict, Any, Optional
+from pathlib import Path
 
-from ollama_prompter.prompter.template_loader import TemplateLoader
+from jinja2 import Template, Environment, FileSystemLoader, meta
 
 
-class Prompter:
+class Prompter(object):
 
-    def __init__(
-        self, 
-        template, 
-        from_string = False,
-        allowed_missing_variables: Optional[List[str]] = None,
-        default_variable_values: Optional[Dict[str, Any]] = None,
-    ):
-        self.template = template
-        self.template_loader = TemplateLoader()
-        self.allowed_missing_variables = [
-            "examples",
-            "description",
-            "output_format",
-        ]
-        self.allowed_missing_variables.extend(allowed_missing_variables or [])
-        self.default_variable_values = default_variable_values or {}
-        self.from_string = from_string
+    def __init__(self, template_name: str, template_dir: str) -> None:
+        self.template_name = template_name
+        self.template_dir = template_dir
 
-    def update_default_variable_values(self, new_defaults: Dict[str, Any]) -> None:
-        self.default_variable_values.update(new_defaults)
-
-    def generate(self, text_input, model_name, **kwargs) -> str:
+    def generate(self, text, **kwargs) -> str:
         """
         Generates a prompt based on a template and input variables.
         """
-        loader = self.template_loader.load_template(
-            self.template, model_name, self.from_string
-        )
+        template_content = read_template(self.template_name, self.template_dir)
+        environment = Environment(loader=FileSystemLoader(self.template_dir))
+        template = environment.get_template(self.template_name)
+        prompt = template.render(**kwargs)
+        return prompt
 
-        kwargs["text_input"] = text_input
 
-        if loader["environment"]:
-            variables = self.template_loader.get_template_variables(
-                loader["environment"], loader["template_name"]
-            )
-            variables_dict = {
-                temp_variable_: kwargs.get(temp_variable_, None)
-                for temp_variable_ in variables
-            }
+def read_template(template_name: str, template_dir: str) -> str:
+    """Read a template"""
 
-            variables_missing = [
-                variable
-                for variable in variables
-                if variable not in kwargs
-                and variable not in self.allowed_missing_variables
-                and variable not in self.default_variable_values
-            ]
+    path = os.path.join(template_dir, template_name)
 
-            if variables_missing:
-                raise ValueError(
-                    f"Missing required variables in template {', '.join(variables_missing)}"
-                )
-        else:
-            variables_dict = {"data": None}
+    if not os.path.exists(path):
+        raise ValueError(f"{path} is not a valid template.")
 
-        kwargs.update(self.default_variable_values)
-        prompt = loader["template"].render(**kwargs).strip()
-
-        if kwargs.get("verbose", False):
-            print(prompt)
-
-        return prompt, variables_dict
+    return Path(path).read_text()
