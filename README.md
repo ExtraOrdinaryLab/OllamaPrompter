@@ -14,6 +14,8 @@ pip install -e .
 
 # ⛩️ Quick Tour
 
+Let's run a text classification using a Ollama model.
+
 ```python
 from ollama_prompter import Ollama, Prompter, Pipeline
 
