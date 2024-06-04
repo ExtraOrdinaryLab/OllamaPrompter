@@ -1,11 +1,6 @@
-<a href=""><img src="docs/imgs/ollama.png" width="125" height="125" align="right" /></a>
-<a href=""><img src="docs/imgs/logo.png" width="125" height="125" align="left" style="margin-right:30px" /></a>
-
-<h1 align="center">
-<span style="font: bold 38pt'Courier New';">OllamaPrompter</span>
-<br>Prompter for Ollama
-</h1>
-<br><br>
+<div style="text-align:center">
+<img src="docs/imgs/logo.png" width="65%">
+</div>
 
 # OllamaPrompter
 
