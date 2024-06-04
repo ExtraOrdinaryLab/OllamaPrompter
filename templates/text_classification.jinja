@@ -48,17 +48,14 @@ Input:
 {{ example.text }}
 '''
 {# whitespace #}
-{%- if chain_of_thought -%}
-{%- if example.reason -%}
-Reason:
-'''
-{{ example.reason }}
-'''
+{%- if chain_of_thought and example.reason -%}
+Output:
+[{'C': '{{ example.answer }}', 'R': '{{ example.reason }}'}]
 {# whitespace #}
-{%- endif -%}
-{%- endif -%}
+{%- else -%}
 Output:
 [{'C': '{{ example.answer }}' }]
+{%- endif -%}
 {# whitespace #}
 {%- endfor -%}
 {%- endif -%}
