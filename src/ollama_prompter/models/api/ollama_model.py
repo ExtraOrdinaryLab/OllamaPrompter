@@ -11,6 +11,16 @@ class Ollama(BaseModel):
     """
     Ollama API
     
+    Args:
+        api_key (str): No need to provide an API key for Ollama class.
+        model_name (str): Name of the model. You can search available models on https://ollama.com/library
+        endpoint (str): To invoke Ollama's OpenAI-compatible API endpoint, set the hostname to http://localhost:11434
+        temperature (float): Adjusts randomness of outputs, greater than 1 is random and 0 is deterministic.
+        top_p (float): When decoding text, samples from the top p percentage of most likely tokens; lower to ignore less likely tokens.
+        top_k (int): When decoding text, samples from the top k most likely tokens; lower to ignore less likely tokens.
+        api_await (bool): Waiting time for the API to finish in seconds.
+        api_retry (int): Retrying time for the API to finish.
+
     Note:
         Need to run local builds for Ollama to start the server first. Ollama has a REST API for running and managing models.
 
@@ -22,6 +32,7 @@ class Ollama(BaseModel):
     """
     name = "Ollama"
     description = "Ollama for text completion using various models."
+    SYSTEM_MESSAGE = "You are a helpful assistant."
 
     def __init__(
         self, 
@@ -37,9 +48,9 @@ class Ollama(BaseModel):
         self.endpoint = endpoint
         self._client = ollama.Client(host=self.endpoint)
 
-        self.temperature = temperature # Adjusts randomness of outputs, greater than 1 is random and 0 is deterministic.
-        self.top_p = top_p # When decoding text, samples from the top p percentage of most likely tokens; lower to ignore less likely tokens.
-        self.top_k = top_k # When decoding text, samples from the top k most likely tokens; lower to ignore less likely tokens.
+        self.temperature = temperature
+        self.top_p = top_p
+        self.top_k = top_k
         self.parameters = self.get_parameters()
         super().__init__(api_key, model_name, api_await, api_retry)
 
@@ -100,7 +111,7 @@ class Ollama(BaseModel):
         Run the LLM on the given prompt list.
         """
         prompt_template = [
-            {"role": "system", "content": "You are a helpful assistant."}, 
+            {"role": "system", "content": self.SYSTEM_MESSAGE}, 
             {"role": "user", "content": prompt}, 
         ]
         self.parameters["messages"] = prompt_template
