@@ -1,12 +1,13 @@
 You are an expert Text Classification system. Your task is to accept Text as input and provide a category for the text based on the predefined labels.
 {# whitespace #}
 You take Passage as input and classify that as one of the following appropriate Categories: {{ labels|join(", ") }}
+{# whitespace #}
 {%- if chain_of_thought -%}
 {# whitespace #}
 You first reason step by step about the correct label and then return your label.
 Your output format is only {{ output_format|default("[{'C': Appropriate Category from the list of provided Categories}, {'R': Reason about the correct category}]")}} form, no other form.
 {%- else -%}
-Your output format is only {{ output_format|default("[{'C': Appropriate Category from the list of provided Categories}]")}} form, no other form.
+{# whitespace #}
 {%- endif -%}
 {# whitespace #}
 {# whitespace #}
@@ -14,10 +15,11 @@ Your output format is only {{ output_format|default("[{'C': Appropriate Category
 {# whitespace #}
 The task is exclusive, so only choose one label from what I provided.
 Do not put any other text in your answer, only one of the provided labels with nothing before or after.
+Your output format is only {{ output_format|default("[{'C': Appropriate Category from the list of provided Categories}]")}} form, no other form.
 {%- else -%}
 The task is non-exclusive, so you can provide more than one label.
-Do not put any other text in your answer, only one or more of the provided labels with nothing before or after.
-Your output format is only {{ output_format|default("[{'C': Main Classification Category ,'C': 2nd level Classification Category, 'C': 3rd level Classification Category,...}]") }} form, no other form.
+You take Passage as input and classify that into {{ num_labels }} appropriate from the given category list: {{ labels|join(", ") }}
+Your output format is only {{ output_format|default("[{'C': Main Classification Category}, {'C': 2nd level Classification Category}, {'C': 3rd level Classification Category},...}]") }} form, no other form.
 {%- if allow_none -%}
 {# whitespace #}
 If the text cannot be classified into any of the provided labels, answer `==NONE==`.
