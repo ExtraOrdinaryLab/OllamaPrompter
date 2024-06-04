@@ -1,7 +1,3 @@
-<div style="text-align:center">
-<img src="imgs/logo.png" width="25%">
-</div>
-
 # OllamaPrompter
 
 This repository is dedicated to enhancing the functionality originally found in the [Promptify](https://github.com/promptslab/Promptify) GitHub repo. As the original Promptify repository is no longer actively maintained, we have decided to adapt and extend its capabilities by integrating the Ollama API to facilitate prompt engineering to solve NLP problems.
