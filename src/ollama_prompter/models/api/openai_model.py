@@ -38,6 +38,8 @@ class OpenAI(BaseModel):
         top_p: float = 1, 
         n: int = 1, 
         stop: Optional[Union[str, List[str]]] = None, 
+        logprobs: bool = False, 
+        top_logprobs: int = None, 
         presence_penalty: float = 0, 
         frequency_penalty: float = 0, 
         logit_bias: Optional[Dict[str, int]] = None, 
@@ -50,6 +52,8 @@ class OpenAI(BaseModel):
         self.top_p = top_p
         self.n = n
         self.stop = stop
+        self.logprobs = logprobs
+        self.top_logprobs = top_logprobs
         self.presence_penalty = presence_penalty
         self.frequency_penalty = frequency_penalty
         self.logit_bias = logit_bias or {}
@@ -82,7 +86,9 @@ class OpenAI(BaseModel):
             "temperature": self.temperature,
             "top_p": self.top_p,
             "n": self.n,
-            "stop": self.stop,
+            "stop": self.stop, 
+            "logprobs": self.logprobs, 
+            "top_logprobs": self.top_logprobs, 
             "presence_penalty": self.presence_penalty,
             "frequency_penalty": self.frequency_penalty,
             "logit_bias": self.logit_bias,
