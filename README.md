@@ -8,6 +8,7 @@ This repository is tested on Python 3.9+, macOS Sonoma and Ubuntu 22.04.
 
 ```bash
 git clone https://github.com/penguinwang96825/OllamaPrompter.git
+pip install -r requirements.txt
 pip install -e .
 ```
 
@@ -63,7 +64,7 @@ More examples will be forthcoming in [examples](https://github.com/penguinwang96
  - [ ] OpenAI API tokens costs estimation.
  - [ ] Add more NLP tasks.
      - [x] Text Classification
-     - [ ] Named Entity Recognition (NER)
+     - [x] Named Entity Recognition (NER)
      - [ ] Question Answering (QA)
      - [ ] Summarisation
      - [ ] Translation
