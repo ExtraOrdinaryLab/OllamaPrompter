@@ -20,7 +20,7 @@ from ollama_prompter import Ollama, Prompter, Pipeline
 text_input = "Wall Street's dwindling and of ultra-cynics, are seeing green again."
 labels = {'World', 'Sports', 'Business', 'Sci/Tech'}
 
-# Defince model, prompter and pipeline
+# Define model, prompter and pipeline
 model = Ollama(
     model_name='llama3:latest', 
     endpoint='http://localhost:11434', 
@@ -28,13 +28,30 @@ model = Ollama(
     top_k=1, 
     top_p=1
 )
-prompter = Prompter('multiclass_classification.jinja')
+prompter = Prompter(
+    template_name='text_classification.jinja', 
+    template_dir='templates'
+)
 pipe = Pipeline([prompter] , model)
 
 # Inference
 result = pipe.fit(
-    text_input=text_input, 
-    labels=labels, 
+    'text': "Wall Street's dwindling and of ultra-cynics, are seeing green again.", 
+    'labels': ['World', 'Sports', 'Business', 'Sci/Tech'], 
+    'exclusive_classes': True, 
+    'allow_none': False, 
+    'label_definitions': {
+        'World': 'This category typically covers international news, events, and issues.', 
+        'Sports': 'News in this category focuses on athletic competitions, events, and achievements.', 
+        'Business': 'This label includes news related to the economic sector and commerce.', 
+        'Sci/Tech': 'This category encompasses news related to scientific discoveries and technological advancements.', 
+    }, 
+    'prompt_examples': [
+        {
+            'text': 'British scientists said on Wednesday they had received permission to clone human embryos for medical research', 
+            'answer': 'Sci/Tech'
+        }
+    ]
 )
 print(eval(result[0]['text'])) # ["C": "Business"]
 ```
