@@ -11,10 +11,11 @@ class Prompter(object):
         self.template_name = template_name
         self.template_dir = template_dir
 
-    def generate(self, text, **kwargs) -> str:
+    def generate(self, text: str, **kwargs) -> str:
         """
         Generates a prompt based on a template and input variables.
         """
+        kwargs['text'] = text.strip()
         template_content = read_template(self.template_name, self.template_dir)
         environment = Environment(loader=FileSystemLoader(self.template_dir))
         template = environment.get_template(self.template_name)
