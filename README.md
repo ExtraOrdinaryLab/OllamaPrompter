@@ -57,6 +57,12 @@ print(eval(result[0]['text'])) # [{'C': 'Sports'}]
  - [ ] Add local HuggingFace models support to work with current OllamaPrompter.
  - [ ] Self-Consistency (SC) integration to send the same prompt with the same text to the same LLM multiple times with different reasoning paths.
  - [ ] Perplexity Estimation of the prompt to measure LLMs awareness and confidence.
+ - [ ] Add more NLP tasks
+     - [x] Text Classification
+     - [ ] Named Entity Recognition (NER)
+     - [ ] Question Answering (QA)
+     - [ ] Summarisation
+     - [ ] Translation
 
 # 📝 Acknowledgements
 
